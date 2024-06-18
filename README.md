@@ -1,4 +1,4 @@
-![Springboot 3]((https://miro.medium.com/v2/resize:fit:828/format:webp/1*6jXr9K8Vm-5P5VFymsrGlQ.png))
+![Springboot 3](https://miro.medium.com/v2/resize:fit:828/format:webp/1*6jXr9K8Vm-5P5VFymsrGlQ.png)
 
 <h1>Resumen</h1>
 
