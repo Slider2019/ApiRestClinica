@@ -1,10 +1,14 @@
 package med_voll.api;
 
 import jakarta.validation.Valid;
+import med_voll.api.medico.DatosListadoMedico;
 import med_voll.api.medico.DatosRegistroMedico;
 import med_voll.api.medico.Medico;
 import med_voll.api.medico.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,7 +26,7 @@ public class MedicoController {
     }
 
     @GetMapping
-    public List<Medico> listadoMedicos(){
-        return medicoRepository.findAll();
+    public Page<DatosListadoMedico> listadoMedicos(@PageableDefault(size = 2) Pageable paginacion){
+        return medicoRepository.findAll(paginacion).map(DatosListadoMedico::new);
     }
 }
