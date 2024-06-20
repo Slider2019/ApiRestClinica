@@ -1,17 +1,14 @@
 package med_voll.api;
 
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import med_voll.api.medico.DatosListadoMedico;
-import med_voll.api.medico.DatosRegistroMedico;
-import med_voll.api.medico.Medico;
-import med_voll.api.medico.MedicoRepository;
+import med_voll.api.medico.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/medicos")
@@ -21,12 +18,26 @@ public class MedicoController {
     private MedicoRepository medicoRepository;
 
     @PostMapping
-    public void registrarMedico(@RequestBody @Valid DatosRegistroMedico datosRegistroMedico){
+    public void registrarMedico(@RequestBody @Valid DatosRegistroMedico datosRegistroMedico) {
         medicoRepository.save(new Medico(datosRegistroMedico));
     }
 
     @GetMapping
-    public Page<DatosListadoMedico> listadoMedicos(@PageableDefault(size = 2) Pageable paginacion){
+    public Page<DatosListadoMedico> listadoMedicos(@PageableDefault(size = 2) Pageable paginacion) {
         return medicoRepository.findAll(paginacion).map(DatosListadoMedico::new);
+    }
+
+    @PutMapping
+    @Transactional
+    public void actualizarMedico(@RequestBody @Valid DatosActualizarMedico datosActualizarMedico) {
+        Medico medico = medicoRepository.getReferenceById(datosActualizarMedico.id());
+        medico.actualizarDatos(datosActualizarMedico);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void eliminarMedico(@PathVariable Long id){
+        Medico medico = medicoRepository.getReferenceById(id);
+        medicoRepository.delete(medico);
     }
 }
