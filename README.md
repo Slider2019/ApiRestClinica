@@ -58,3 +58,11 @@ interactuar con el usuario para mostrar fechas de disponibilidad de horas médic
 * Manejo de parámetros dinámicos en URLs con @PathVariable.
 
 * Implementación de exclusión lógica con un atributo booleano.
+
+<h1>Herramientas utilizadas</h1>
+
+* MySQL Workbench
+
+* Insomnia
+
+* IntelliJ Community edition
