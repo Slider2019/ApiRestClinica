@@ -1,4 +1,4 @@
-package med_voll.api;
+package med_voll.api.controller;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
