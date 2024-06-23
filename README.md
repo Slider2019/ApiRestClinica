@@ -33,7 +33,7 @@ interactuar con el usuario para mostrar fechas de disponibilidad de horas médic
 
 * Control de acceso con JWT
 
-* Trataniento de errores
+* Tratamiento de errores
 
 * Buenas practicas REST
 
