@@ -31,6 +31,14 @@ interactuar con el usuario para mostrar fechas de disponibilidad de horas médic
 
 * Añadir dependencias para acceso a bases de datos.
 
+* Control de acceso con JWT
+
+* Trataniento de errores
+
+* Buenas practicas REST
+
+* CRUD
+
 * Creación de entidades JPA y repositorios.
 
 * Utilización de Flyway para migraciones de base de datos.
